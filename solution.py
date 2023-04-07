@@ -11,7 +11,12 @@ def solution(p: float, x: np.array) -> tuple:
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
     alpha = 1 - p
-    loc = x.mean()
-    scale = np.sqrt(np.var(x)) / np.sqrt(len(x))
-    return loc - scale * norm.ppf(1 - alpha / 2), \
-           loc - scale * norm.ppf(alpha / 2)
+    #loc = x.mean()
+    m2 = np.max (x)
+    n = len(x)
+    z = pow(alpha, (1/n))
+    m3 = m2/z
+    #scale = np.sqrt(np.var(x)) / np.sqrt(len(x))
+    #return loc - scale * norm.ppf(1 - alpha / 2), \
+    #       loc - scale * norm.ppf(alpha / 2)
+    return m2, m3
